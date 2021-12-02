@@ -6,21 +6,21 @@
 
 (defun move_sub(value)
    "Calculates area of a circle with given radius"
-   (if (string= direction 'forward)
+  (if (string= direction 'forward)
      (incf distance value)
-   )
-   (if (string= direction 'up)
+  )
+  (if (string= direction 'up)
      (decf depth value)
-   )
-   (if (string= direction 'down)
+  )
+  (if (string= direction 'down)
      (incf depth value)
-   )
+  )
 )
 
 (defun format_text(value)
    "Calculates area of a circle with given radius"
    (if (numberp value)
-     (move_sub distance)
+     (move_sub value)
      (setq direction value)
    )
 )
@@ -30,7 +30,13 @@
 (loop for x in v1
    do (format_text x)
 )
+(terpri)
+(write '(forward distance))
+(terpri)
 
 (write distance)
+(terpri)
+(write `depth)
+(terpri)
 
 (write depth)
