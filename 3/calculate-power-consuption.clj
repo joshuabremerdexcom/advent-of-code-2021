@@ -1,7 +1,8 @@
 (use 'clojure.java.io)
 (require '[clojure.zip :as zip])
 
-
+(defn zip [& colls]
+  (partition (count colls) (apply interleave colls)))
 (defn get-lines [fname]
   (with-open [r (reader fname)]
     (doall (line-seq r))))
@@ -27,10 +28,23 @@
   )
 )
 
+
+;;; Original Lists
+(println (map seq (get-lines "./3/simple_input.txt")))
+
+;;; Zipped lists
 (println
-(map frequencies (apply map str (map seq (get-lines "./3/simple_input.txt")))
+ (apply map vector (map seq (get-lines "./3/simple_input.txt")))
 )
-);; Will just print file line by ine
+
+;;; Frequencies
+(println
+(map frequencies (apply map vector (map seq (get-lines "./3/simple_input.txt")))
+)
+)
+
+
+;; Will just print file line by ine
 ;; (process-file-by-lines "./3/input.txt"
 ;;                        reverse) ;; Will print each line reversed
 
