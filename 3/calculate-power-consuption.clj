@@ -27,8 +27,10 @@
   )
 )
 
-
-(println (apply map str (map seq (get-lines "./3/simple_input.txt"))));; Will just print file line by ine
+(println
+(map frequencies (apply map str (map seq (get-lines "./3/simple_input.txt")))
+)
+);; Will just print file line by ine
 ;; (process-file-by-lines "./3/input.txt"
 ;;                        reverse) ;; Will print each line reversed
 
