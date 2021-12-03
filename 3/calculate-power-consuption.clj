@@ -1,5 +1,5 @@
 (use 'clojure.java.io)
-(require '[clojure.zip :as zip])
+;; (require '[clojure.zip :as zip])
 
 (defn parse-binary [s] (Integer/parseInt s 2))
 
