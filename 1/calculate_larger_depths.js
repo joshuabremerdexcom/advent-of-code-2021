@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const fs = require("fs");
 
 const fileContents = fs.readFileSync("./1/fixture.txt");

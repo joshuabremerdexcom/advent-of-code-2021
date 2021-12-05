@@ -1,11 +1,37 @@
 {
-  "name": "advent-of-code",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "express-typescript-starter",
+  "version": "0.1.0",
+  "description": "A starting point for Node.js express apps with TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/TypeScript-Node-Starter"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Bowden Kelly",
+  "license": "MIT",
+  "scripts": {
+    "build-ts": "tsc",
+    "build": "npm run build-ts && npm run lint",
+    "debug": "npm run build && npm run watch-debug",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
+    "serve-debug": "nodemon --inspect dist/server.js",
+    "serve": "node dist/server.js",
+    "start": "npm run serve",
+    "test": "jest --forceExit --coverage --verbose",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\"",
+    "watch-node": "nodemon dist/server.js",
+    "watch-test": "npm run test -- --watchAll",
+    "watch-ts": "tsc -w",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\""
+  },
+  "devDependencies": {
+    "@types/eslint": "7.2.6",
+    "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "4.14.2",
+    "@typescript-eslint/parser": "4.14.2",
+    "jest": "^27.0.6",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.0.3",
+    "ts-node": "9.1.1",
+    "typescript": "4.1.3"
+  }
 }
